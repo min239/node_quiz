@@ -4,6 +4,10 @@ const morgan = require('morgan')
 const app = express()
 app.use(morgan('dev'))
 
+app.use('/list', listRouter)
+
+app.use('/view', viewRouter)
+
 app.use((req, res, next) => {
    res.status(404).send('Not Found')
 })
